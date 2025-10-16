@@ -1,1 +1,9 @@
-{"folders":[{"path":"sample_project"}],"settings":{}}
+{"folders":[
+        {
+            "path": "sample_project"
+        },
+        {
+            "name": "ui5app2 (1)",
+            "path": "ui5app2 (1)"
+        }
+    ],"settings":{}}

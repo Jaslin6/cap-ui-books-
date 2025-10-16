@@ -13,5 +13,27 @@ module.exports = cds.service.impl(async function(srv) {
         return reslut
     })
 
+    srv.on('myfunction', req => {
+
+        let result = {}
+
+        if(req.data.category == 1) {
+            result.product = 'BMW',
+            result.stock = '1200 USD',
+            result.color = 'Black'
+        } else {
+            result.product = 'Audi'
+            result.stock = 120,
+            result.priceArray = [
+                {
+                    "Price": 47457,
+                    "Discount": "20 %"
+                }
+            ]
+        }
+        console.log(result)
+        return result;
+    })
+
 })
 
