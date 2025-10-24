@@ -5,7 +5,7 @@ service CatalogService {
   /** For displaying lists of Books */
   @readonly
   entity ListOfBooks as
-    projection on Books
+    projection on my.Books
     excluding {
       descr
     };
@@ -15,7 +15,11 @@ service CatalogService {
   entity Books       as
     projection on my.Books {
       *,
-      author.name as author
+      author.name as author,
+      genre,
+      price
+      
+      
     }
     excluding {
       createdBy,
@@ -35,3 +39,4 @@ service CatalogService {
     buyer    : String
   };
 }
+

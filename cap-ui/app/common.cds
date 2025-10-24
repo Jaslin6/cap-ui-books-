@@ -28,7 +28,7 @@ annotate my.Books with @(
         Label: '{i18n>Title}'
       },
       {
-        Value: author.ID,
+        Value: author.name,
         Label: '{i18n>Author}'
       },
       {Value: genre.name},

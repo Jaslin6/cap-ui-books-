@@ -28,6 +28,11 @@ annotate AdminService.Books with @(UI: {
       Label : '{i18n>Details}',
       Target: '@UI.FieldGroup#Details'
     },
+     {
+      $Type : 'UI.ReferenceFacet',
+      Label : '{i18n>AuthorDetails}',
+      Target: '@UI.FieldGroup#AuthorDetails'
+    },
     {
       $Type : 'UI.ReferenceFacet',
       Label : '{i18n>Admin}',
@@ -48,6 +53,30 @@ annotate AdminService.Books with @(UI: {
       Label: '{i18n>Currency}'
     },
   ]},
+   FieldGroup #AuthorDetails  : {Data: [
+   
+   {
+     Value: author.name,
+     Label: '{i18n>AuthorName}'
+   },
+   {
+     Value: author.dateOfBirth,
+     Label: '{i18n>DateOfBirth}'
+   },
+   {
+     Value: author.placeOfBirth,
+     Label: '{i18n>PlaceOfBirth}'
+   },
+   {
+     Value: author.dateOfDeath,
+     Label: '{i18n>DateOfDeath}'
+   },
+   {
+     Value: author.placeOfDeath,
+     Label: '{i18n>PlaceOfDeath}'
+   }
+  ]},
+
   FieldGroup #Admin  : {Data: [
     {Value: createdBy},
     {Value: createdAt},
@@ -88,8 +117,8 @@ annotate AdminService.Books.texts with @(UI: {
 });
 
 annotate AdminService.Books.texts with {
-  ID       @UI.Hidden;
-  ID_texts @UI.Hidden;
+  ID           @UI.Hidden;
+  ID_texts     @UI.Hidden;
 };
 
 // Add Value Help for Locales
@@ -109,8 +138,8 @@ extend service AdminService {
 }
 
 // Workaround for Fiori popups for asking user to enter a valid UUID on Create
-annotate AdminService.Authors : ID with  @Core.Computed  @odata.Type: 'Edm.String';
-annotate AdminService.Books : ID with  @Core.Computed  @odata.Type: 'Edm.String';
+//annotate AdminService.Authors : ID with  @odata.Type: 'Edm.String';    //@Core.Computed  @odata.Type: 'Edm.String';
+//annotate AdminService.Books : ID with    @odata.Type: 'Edm.String';
 
 // Show Genre as drop down, not a dialog
 annotate AdminService.Books with {

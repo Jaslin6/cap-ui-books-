@@ -20,14 +20,31 @@ annotate CatalogService.Books with @(UI: {
     $Type : 'UI.ReferenceFacet',
     Label : '{i18n>Details}',
     Target: '@UI.FieldGroup#Price'
-  }, ],
+  }, 
+ 
+    ],
   FieldGroup #Descr: {Data: [{Value: descr}, ]},
   FieldGroup #Price: {Data: [
     {Value: price},
     {
-      Value: currency.symbol,
+      Value: currency_code,
       Label: '{i18n>Currency}'
     },
+    { Value: ID,
+      Label: '{i18n>UserID}' 
+    },
+    { Value: genre_ID,
+      Label: '{i18n>Genre}' 
+    },
+    { Value: stock,
+      Label: '{i18n>Stock}' 
+    },
+    { Value: author,
+      Label: '{i18n>Author}' 
+    },
+    
+
+
   ]},
 });
 
@@ -39,7 +56,8 @@ annotate CatalogService.Books with @(UI: {
   SelectionFields: [
     ID,
     price,
-    currency_code
+    currency_code,
+    genre.name,
   ],
   LineItem       : [
     {
@@ -52,6 +70,7 @@ annotate CatalogService.Books with @(UI: {
     },
     {Value: genre.name},
     {Value: price},
-    {Value: currency.symbol},
+//    {Value: currency.symbol},
+    {Value: currency_code}
   ]
 });
